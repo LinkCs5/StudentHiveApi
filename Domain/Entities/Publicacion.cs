@@ -25,7 +25,7 @@ public partial class Publicacion
 
     public int? IdHabitacion { get; set; }
 
-    public virtual Habitacion? IdHabitacionNavigation { get; set; }
+    public virtual Habitacion? IdHabitacionNavigation { get; set; } =null!;
 
     public virtual ICollection<Reserva> Reservas { get; set; } = new List<Reserva>();
 }

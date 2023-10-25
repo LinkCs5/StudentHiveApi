@@ -5,6 +5,7 @@ using StudentHive.Services.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using StudentHive.Services.MappingsM;
+using StudentHive.Services.Features.Publicaciones;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,9 @@ var Configuration = builder.Configuration;
 // Add services to the container.
 builder.Services.AddScoped<ReservacionesService>();
 builder.Services.AddTransient<ReservaRepository>();
+
+builder.Services.AddScoped<PublicacionesService>();
+builder.Services.AddTransient<PublicacionesRepository>();
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<StudentHiveDbContext>(

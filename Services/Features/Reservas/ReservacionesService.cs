@@ -12,10 +12,10 @@ public class ReservacionesService
         this._reservaRepository = reservaRepository;
     }
 
-    public async Task<IEnumerable<Reserva>> GetAll()
-    {
-        return await _reservaRepository.GetAll();
-    }
+     public async Task<IEnumerable<Reserva>> GetAll()
+     {
+         return await _reservaRepository.GetAll();
+     }
 
     public async Task<Reserva> GetById(int id)
     {
@@ -27,11 +27,11 @@ public class ReservacionesService
         await _reservaRepository.Add(reserva);
     }
 
-    public async Task Delete (int id )
-    {
-        var reserva = GetById(id);
+    // public async Task Delete (int id )
+    // {
+    //     var reserva = GetById(id);
 
-        if(reserva.Id > 0)
-            await _reservaRepository.Delete(id);
-    }
+    //     if(reserva.Id > 0)
+    //         await _reservaRepository.Delete(id);
+    // }
 }

@@ -39,20 +39,5 @@ public class ReservaRepository
         await _context.AddAsync(reserva);
         await _context.SaveChangesAsync();
     }
-
-    public async Task Delete(int id)
-{
-
-        var reserva = await _context.Reservas.FirstOrDefaultAsync(reserva => reserva.IdReservas == id);
-        if (reserva != null)
-        {
-            _context.Reservas.Remove(reserva);
-
-            await _context.SaveChangesAsync();
-
-        }
-
-}
-
-    
+        
 }

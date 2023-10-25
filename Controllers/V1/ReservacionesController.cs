@@ -5,7 +5,7 @@ using AutoMapper;
 using StudentHive.Domain.Dtos;
 using Microsoft.AspNetCore.Identity;
 
-namespace JaveragesLibrary.Controllers.V1;
+namespace StudentHive.Controllers.V1;
 
 [ApiController]
 [Route ("api/[controller]")]
@@ -41,22 +41,22 @@ public class ReservaController : ControllerBase
         return Ok (dto);
     }
 
-    // [HttpPost]
-    // public async Task<IActionResult> Add(ReservaCreateDTO reserva)
-    // {
-    //     var entity = _mapper.Map<Reserva>(reserva);
+    [HttpPost]
+    public async Task<IActionResult> Add(ReservaCreateDTO reserva)
+    {
+        var entity = _mapper.Map<Reserva>(reserva);
 
-    //     await _reservaService.Add(entity);
-    //     var dto = _mapper.Map<ReservaDTO>(entity);
+        await _reservaService.Add(entity);
+        var dto = _mapper.Map<ReservaDTO>(entity);
 
-    //     return CreatedAtAction(nameof(GetById),new {id = entity.IdReservas},dto);
-    // }
+        return CreatedAtAction(nameof(GetById),new {id = entity.IdReservas},dto);
+    }
 
     
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(int id)
-    {
-        await _reservaService.Delete(id);
-        return NoContent();
-    }
+    // [HttpDelete("{id}")]
+    // public async Task<IActionResult> Delete(int id)
+    // {
+    //     await _reservaService.Delete(id);
+    //     return NoContent();
+    // }
 }
