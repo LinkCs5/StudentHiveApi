@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
-using StudentHive.Domain.Entities;
 using StudentHive.Infrastructure.Data.Configurations;
 
-namespace StudentHive.Infrastructure.Data;
+namespace StudentHive.Domain.Entities;
 
 public partial class StudentHiveDbContext : DbContext
 {
@@ -17,22 +17,23 @@ public partial class StudentHiveDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Habitacion> Habitaciones { get; set; }
+    public virtual DbSet<Arrendador> Arrendadores { get; set; }
+
+    public virtual DbSet<Inquilino> Inquilinos { get; set; }
+
+    public virtual DbSet<Match> Matchs { get; set; }
 
     public virtual DbSet<Publicacion> Publicaciones { get; set; }
 
-    public virtual DbSet<Reserva> Reservas { get; set; }
-
-    public virtual DbSet<Usuario> Usuarios { get; set; }
-
+    public virtual DbSet<Reservacion> Reservaciones { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new HabitacionConfiguration());
+        modelBuilder.ApplyConfiguration( new ArrendadorConfiguration());
+        modelBuilder.ApplyConfiguration(new InquilinoConfiguration());
+        modelBuilder.ApplyConfiguration(new MatchConfiguration());
         modelBuilder.ApplyConfiguration(new PublicacionConfiguration());
-        modelBuilder.ApplyConfiguration(new ReservaConfiguration());
-        modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
-        
+        modelBuilder.ApplyConfiguration(new ReservacionConfiguration());
         OnModelCreatingPartial(modelBuilder);
     }
 

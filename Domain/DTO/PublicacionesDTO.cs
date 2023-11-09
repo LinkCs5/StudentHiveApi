@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
 
-namespace StudentHive.Domain.Entities;
+namespace StudentHive.Domain.DTO;
 
-public partial class Publicacion
+public class PublicacionesDTO 
 {
-    public int IdPublicacion { get; set; }
-
+    public int IdPublicacion {get; set;}
     public string? Titulo { get; set; }
 
     public string? Imagenes { get; set; }
@@ -22,8 +19,4 @@ public partial class Publicacion
     public string? Estatus { get; set; }
 
     public int? IdAnfitrion { get; set; }
-
-    public virtual Arrendador? IdAnfitrionNavigation { get; set; }
-
-    public virtual ICollection<Reservacion> Reservaciones { get; set; } = new List<Reservacion>();
 }
