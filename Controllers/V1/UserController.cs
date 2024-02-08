@@ -1,8 +1,8 @@
 using AutoMapper;
 using StudentHive.Domain.DTO;
 using Microsoft.AspNetCore.Mvc;
-using StudentHive.Domain.DtoCreate;
 using StudentHive.Domain.Entities;
+using StudentHive.Domain.DtoUpdate;
 using StudentHive.Services.Features.Users;
 
 namespace StudentHive.Controllers.V1;
@@ -43,7 +43,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<IActionResult> UpdateUser([FromBody] CreateUser userDto, int id)
+    public async Task<IActionResult> UpdateUser([FromBody] UpdateUser userDto, int id)
     {
         try
         {

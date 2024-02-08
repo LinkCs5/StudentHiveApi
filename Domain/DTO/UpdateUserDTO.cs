@@ -1,6 +1,6 @@
-namespace StudentHive.Domain.DtoCreate;
+namespace StudentHive.Domain.DtoUpdate;
 
-public partial class CreateUser
+public partial class UpdateUser
 {
     public int IdUser { get; set; }
 

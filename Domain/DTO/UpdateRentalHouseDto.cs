@@ -1,6 +1,6 @@
-namespace StudentHive.Domain.DtoCreate;
+namespace StudentHive.Domain.DtoUpdate;
 
-public class CreateRentalHouseDto
+public class UpdateRentalHouseDto
 {
     public string Title { get; set; } = null!;
     public string Description { get; set; } = null!;

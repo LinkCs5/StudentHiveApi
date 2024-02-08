@@ -3,6 +3,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using StudentHive.Domain.DTO;
+using StudentHive.Domain.DtoUpdate;
 using StudentHive.Domain.Entities;
 using StudentHive.Services.Features.RentalH;
 
@@ -44,7 +45,7 @@ public class rentalHouseController : ControllerBase
     }
     
     [HttpPut]
-    public async Task<IActionResult> UpdateRentalHouse([FromBody] RentalHouseDto RentalHouseDto, int id)
+    public async Task<IActionResult> UpdateRentalHouse([FromBody] UpdateRentalHouseDto updateRentalHouseDto, int id)
     {
         try
         {
@@ -53,11 +54,11 @@ public class rentalHouseController : ControllerBase
             {
                 return NotFound();
             }
-            existingRentalHouse.Title = RentalHouseDto.Title;
-            existingRentalHouse.Description = RentalHouseDto.Description;
-            existingRentalHouse.Status = RentalHouseDto.Status;
-            existingRentalHouse.WhoElse = RentalHouseDto.WhoElse;
-            existingRentalHouse.RentPrice = RentalHouseDto.RentPrice;
+            existingRentalHouse.Title = updateRentalHouseDto.Title;
+            existingRentalHouse.Description = updateRentalHouseDto.Description;
+            existingRentalHouse.Status = updateRentalHouseDto.Status;
+            existingRentalHouse.WhoElse = updateRentalHouseDto.WhoElse;
+            existingRentalHouse.RentPrice = updateRentalHouseDto.RentPrice;
 
             await _rentalHouseService.UpdateRentalHouse(existingRentalHouse);
             return NoContent();
