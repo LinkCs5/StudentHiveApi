@@ -76,3 +76,4 @@ C:\home\StudentHive0.1\obj\Release\net7.0\refint\StudentHive0.1.dll
 C:\home\StudentHive0.1\obj\Release\net7.0\StudentHive0.1.pdb
 C:\home\StudentHive0.1\obj\Release\net7.0\StudentHive0.1.genruntimeconfig.cache
 C:\home\StudentHive0.1\obj\Release\net7.0\ref\StudentHive0.1.dll
+C:\home\StudentHive0.1\obj\Release\net7.0\StudentHive0.1.sourcelink.json
