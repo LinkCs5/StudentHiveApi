@@ -1,5 +1,5 @@
 using AutoMapper;
-using Domain.DTO;
+using StudentHive.Domain.DTO;
 using Microsoft.AspNetCore.Mvc;
 using StudentHive.Domain.DtoCreate;
 using StudentHive.Domain.Entities;

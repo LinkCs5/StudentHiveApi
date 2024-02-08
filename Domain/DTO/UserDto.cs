@@ -1,5 +1,5 @@
 
-namespace Domain.DTO;
+namespace StudentHive.Domain.DTO;
 public class UserDto
 {
     public string Email { get; set; } = null!;
