@@ -13,7 +13,7 @@ public class RentalHouseRepository
     }
     public async Task<IEnumerable<RentalHouse>> GetRentalHouses()
     {
-        var rentalHouses = await _context.RentalHouses.ToListAsync();
+        var rentalHouses = await _context.RentalHouses.Include(image => image.Images).ToListAsync();
         return rentalHouses;
     }
     public async Task<RentalHouse> GetRentalHouseById(int id)

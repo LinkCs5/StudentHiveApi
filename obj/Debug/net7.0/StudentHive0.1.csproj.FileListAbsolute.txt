@@ -153,3 +153,8 @@ C:\home\StudentHive0.1\obj\Debug\net7.0\StudentHive0.1.pdb
 C:\home\StudentHive0.1\obj\Debug\net7.0\StudentHive0.1.genruntimeconfig.cache
 C:\home\StudentHive0.1\obj\Debug\net7.0\ref\StudentHive0.1.dll
 C:\home\StudentHive0.1\obj\Debug\net7.0\StudentHive0.1.sourcelink.json
+C:\home\StudentHive0.1\bin\Debug\net7.0\publish\web.config
+C:\home\StudentHive0.1\bin\Debug\net7.0\publish\appsettings.Development.json
+C:\home\StudentHive0.1\bin\Debug\net7.0\publish\appsettings.json
+C:\home\StudentHive0.1\bin\Debug\net7.0\publish\StudentHive0.1.deps.json
+C:\home\StudentHive0.1\bin\Debug\net7.0\publish\StudentHive0.1.runtimeconfig.json

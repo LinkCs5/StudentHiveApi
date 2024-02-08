@@ -7,5 +7,7 @@ public class UserDto
     public string? Name { get; set; }
     public string? LastName { get; set; }
     public int UserAge { get; set; }
+    public DateTime PublicationDate { get; set; }
+
 
 }

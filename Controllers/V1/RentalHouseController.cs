@@ -1,16 +1,14 @@
-
 using AutoMapper;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
 using StudentHive.Domain.DTO;
-using StudentHive.Domain.DtoUpdate;
+using Microsoft.AspNetCore.Mvc;
 using StudentHive.Domain.Entities;
+using StudentHive.Domain.DtoUpdate;
 using StudentHive.Services.Features.RentalH;
 
 namespace StudentHive.Controllers.V1;
 
 [ApiController]
-[Microsoft.AspNetCore.Components.Route("api/V1/[controller]")]
+[Route("api/V1/[controller]")]
 public class rentalHouseController : ControllerBase
 {
     private readonly RentalHouseService _rentalHouseService;

@@ -11,7 +11,8 @@ public class ResponseMappingProfile : Profile
         CreateMap<User, UserDto>()
         .ForMember( dest => dest.UserAge, opt => opt.MapFrom(src => src.UserAge ?? 0));
 
-        CreateMap<RentalHouse, RentalHouseDto>();
+        CreateMap<RentalHouse, RentalHouseDto>()
+        .ForMember(dest => dest.PublicationDate, opt => opt.MapFrom(src => src.PublicationDate.Date.Year));
     }
     
     
