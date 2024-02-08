@@ -1,31 +1,21 @@
 using StudentHive.Infrastructure.Data;
-using StudentHive.Infrastructure.Repositories;
-using StudentHive.Services.Features.Publicaciones;
 using StudentHive.Services.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using StudentHive.Services.MappingsM;
-using StudentHive.Domain.Entities;
-using StudentHive.Services.Features.Reservaciones;
-using StudentHive.Services.Features.Matchs;
+using StudentHive.Services.Features.Users;
+using StudentHive.Infrastructure.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<PublicacionesService>();
-builder.Services.AddTransient<PublicacionesRepository>();
-
-builder.Services.AddScoped<ReservacionesService>();
-builder.Services.AddTransient<ReservacionesRepository>();
-
-builder.Services.AddScoped<MatchService>();
-builder.Services.AddTransient<MatchRepository>();
-
-
 var Configuration = builder.Configuration;
+
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<UserRepository>();
 
 // Add services to the container
 builder.Services.AddControllers();
-builder.Services.AddDbContext<StudentHiveDbContext>(
+builder.Services.AddDbContext<StudentHiveApiDbContext>(
     options => {
     options.UseSqlServer(Configuration.GetConnectionString("gemDevelopment"));
     }
