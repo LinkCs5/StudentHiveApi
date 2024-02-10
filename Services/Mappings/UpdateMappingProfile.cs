@@ -10,7 +10,7 @@ public class UpdateMappingProfile : Profile
 {
     public UpdateMappingProfile()
     {
-        CreateMap<UpdateUser, User>();
+        CreateMap<UpdateUserDto, User>();
         CreateMap<UpdateRentalHouseDto, RentalHouse>();
     }
 }

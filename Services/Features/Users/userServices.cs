@@ -1,14 +1,14 @@
 using System.Runtime.Intrinsics.Arm;
 using StudentHive.Domain.Entities;
-using StudentHive.Infrastructure.Data.Configurations;
+using StudentHive.Infrastructure.Repositories;
 
-namespace StudentHive.Services.Mappings.Users;
+namespace StudentHive.Service.Features.Users;
 
-class UserServices
+public class UserService
 {
     private readonly UserRepository _userRepository;
 
-    public UserServices(UserRepository userRepository)
+    public UserService(UserRepository userRepository)
     {
         this._userRepository = userRepository;
     }

@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using StudentHive.Domain.Entities;
+using StudentHive.Infrastructure.Data;
 
-namespace StudentHive.Infrastructure.Data.Configurations;
 
-class UserRepository
+namespace StudentHive.Infrastructure.Repositories;
+
+public class UserRepository
 {
     private readonly StudentHiveApiDbContext _context;
 
