@@ -13,6 +13,7 @@ public class ResponseMappingProfile : Profile
 
         CreateMap<RentalHouse, RentalHouseDto>()
         .ForMember(dest => dest.PublicationDate, opt => opt.MapFrom(src => src.PublicationDate.Date.Year));
+
     }
     
     

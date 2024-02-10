@@ -14,7 +14,6 @@ public class RentalHouseDto
 
     public long RentPrice { get; set; }
     public DateTime PublicationDate { get; set; }
-    
-    public string UrlImageHouse { get; set; } = null!;
+    public IFormFile UrlImageHouse { get; set; } = null!;
 
 }

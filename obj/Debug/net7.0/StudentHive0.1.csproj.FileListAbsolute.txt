@@ -158,3 +158,5 @@ C:\home\StudentHive0.1\bin\Debug\net7.0\publish\appsettings.Development.json
 C:\home\StudentHive0.1\bin\Debug\net7.0\publish\appsettings.json
 C:\home\StudentHive0.1\bin\Debug\net7.0\publish\StudentHive0.1.deps.json
 C:\home\StudentHive0.1\bin\Debug\net7.0\publish\StudentHive0.1.runtimeconfig.json
+C:\home\StudentHive0.1\bin\Debug\net7.0\CloudinaryDotNet.dll
+C:\home\StudentHive0.1\bin\Debug\net7.0\Newtonsoft.Json.dll
