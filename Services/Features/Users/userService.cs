@@ -1,41 +1,48 @@
+using System.Runtime.Intrinsics.Arm;
 using StudentHive.Domain.Entities;
-using StudentHive.Infrastructure.Repository;
+using StudentHive.Infrastructure.Data.Configurations;
 
-namespace StudentHive.Services.Features.Users
+namespace StudentHive.Services.Mappings.Users;
+
+class UserServices
 {
-    public class UserService
+    private readonly UserRepository _userRepository;
+
+    public UserServices(UserRepository userRepository)
     {
-        private readonly UserRepository _userRepository;
-        public UserService(UserRepository userRepository)
+        this._userRepository = userRepository;
+    }
+
+    public async Task<User> GeById( int id)
+    {
+        return await _userRepository.GetUserById(id);
+    }
+
+    public async Task<User> AuthLogin(string email, string password)
+    {
+        return await _userRepository.AtuhLogin(email, password);
+    }
+
+    public async Task Add(User user)
+    {
+        await _userRepository.AddUser(user);
+    }
+
+    public async Task Update(User userUpdate)
+    {
+        var user = await GeById(userUpdate.IdUser);
+        if(user.IdUser > 0)
         {
-            _userRepository = userRepository;
+            await _userRepository.UpdateUser(userUpdate);
         }
+    }
 
-        public async Task<IEnumerable<User>> GetUsers()
+    public async Task Delete(int id)
+    {
+        var user = await GeById(id);
+        if(user.IdUser > 0)
         {
-            return await _userRepository.GetUsers();
-        }
-
-        public async Task<User> GetUserById(int id)
-        {
-            return await _userRepository.GetUserById(id);
-        }
-
-        public async Task CreateUser(User user)
-        {
-            await _userRepository.CreateUser(user);
-        }
-
-
-        public async Task UpdateUser(User user)
-        {
-            await _userRepository.UpdateUser(user);
-            
-        }
-
-        public async Task DeleteUser(int id)
-        {
-            await _userRepository.DeleteUser(id);
+            await _userRepository.Delete(id);
         }
     }
 }

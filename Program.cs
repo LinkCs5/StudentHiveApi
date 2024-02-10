@@ -6,6 +6,7 @@ using StudentHive.Services.MappingsM;
 using StudentHive.Services.Features.Users;
 using StudentHive.Infrastructure.Repository;
 using StudentHive.Services.Features.RentalH;
+using CloudinaryDotNet;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,18 @@ builder.Services.AddDbContext<StudentHiveApiDbContext>(
     options.UseSqlServer(Configuration.GetConnectionString("gemDevelopment"));
     }
 );
+
+
+var cloudinarySettings = builder.Configuration.GetSection("CloudinarySettings");
+Account account = new Account(
+    cloudinarySettings["CloudName"],
+    cloudinarySettings["ApiKey"],
+    cloudinarySettings["ApiSecret"]
+);
+
+Cloudinary cloudinary = new Cloudinary(account);
+
+builder.Services.AddSingleton(cloudinary);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

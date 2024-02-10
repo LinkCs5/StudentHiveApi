@@ -1,45 +1,50 @@
 using Microsoft.EntityFrameworkCore;
 using StudentHive.Domain.Entities;
-using StudentHive.Infrastructure.Data;
 
-namespace StudentHive.Infrastructure.Repository;
+namespace StudentHive.Infrastructure.Data.Configurations;
 
-public class UserRepository
+class UserRepository
 {
     private readonly StudentHiveApiDbContext _context;
+
     public UserRepository(StudentHiveApiDbContext context)
     {
-        _context = context;
-    }
-
-    public async Task<IEnumerable<User>> GetUsers()
-    {
-        var  users = await _context.Users.ToListAsync();
-        return users;
+        this._context = context;
     }
 
     public async Task<User> GetUserById(int id)
     {
-        var user = await _context.Users.FindAsync(id);
+        var user = await _context.Users.FirstOrDefaultAsync(user => user.IdUser == id);
         return user ?? new User();
     }
 
-    public async Task CreateUser(User user)
+    public async Task<User> AtuhLogin(string email, string password)
     {
-        await _context.Users.AddAsync(user);
+        var user = await _context.Users.FirstOrDefaultAsync(user => user.Email == email && user.Password == password);
+        return user ?? new User();
+    }
+
+    public async Task AddUser(User user)
+    {
+        await _context.AddAsync(user);
         await _context.SaveChangesAsync();
     }
 
-    public async Task UpdateUser(User updateuser)
+    public async Task UpdateUser(User updatedUser)
     {
-        _context.Users.Update(updateuser);
-        await _context.SaveChangesAsync();
+        var user = await _context.Users.FirstOrDefaultAsync(User => User.IdUser == updatedUser.IdUser);
+
+        if(user != null)
+        {
+            _context.Entry(user).CurrentValues.SetValues(updatedUser);
+            await _context.SaveChangesAsync();
+        }
     }
 
-    public async Task DeleteUser(int id)
+    public async Task Delete(int id)
     {
-        var user = await _context.Users.FirstOrDefaultAsync(x => x.IdUser == id);
-        if (user != null)
+        var user = await _context.Users.FirstOrDefaultAsync(User => User.IdUser == id);
+        if(user != null)
         {
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
