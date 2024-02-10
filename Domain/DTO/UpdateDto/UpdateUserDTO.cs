@@ -1,6 +1,6 @@
 namespace StudentHive.Domain.DtoUpdate;
 
-public partial class UpdateUser
+public partial class UpdateUserDto
 {
     public int? UserAge { get; set; }
 
