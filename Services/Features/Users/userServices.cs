@@ -18,6 +18,11 @@ public class UserService
         return await _userRepository.GetUserById(id);
     }
 
+    public async Task<List<User>> GetAllPublicationsOfOneUser(int id)
+    {
+        return await _userRepository.GetAllPublicationsOfOneUser(id);
+    }
+
     public async Task<User> AuthLogin(string email, string password)
     {
         return await _userRepository.AtuhLogin(email, password);

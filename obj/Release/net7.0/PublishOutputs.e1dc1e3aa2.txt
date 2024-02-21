@@ -8,6 +8,7 @@ C:\home\StudentHive0.1\publish\AutoMapper.dll
 C:\home\StudentHive0.1\publish\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\home\StudentHive0.1\publish\Azure.Core.dll
 C:\home\StudentHive0.1\publish\Azure.Identity.dll
+C:\home\StudentHive0.1\publish\CloudinaryDotNet.dll
 C:\home\StudentHive0.1\publish\Microsoft.AspNetCore.OpenApi.dll
 C:\home\StudentHive0.1\publish\Microsoft.Bcl.AsyncInterfaces.dll
 C:\home\StudentHive0.1\publish\Microsoft.Data.SqlClient.dll
@@ -26,6 +27,7 @@ C:\home\StudentHive0.1\publish\Microsoft.IdentityModel.Tokens.dll
 C:\home\StudentHive0.1\publish\Microsoft.OpenApi.dll
 C:\home\StudentHive0.1\publish\Microsoft.SqlServer.Server.dll
 C:\home\StudentHive0.1\publish\Microsoft.Win32.SystemEvents.dll
+C:\home\StudentHive0.1\publish\Newtonsoft.Json.dll
 C:\home\StudentHive0.1\publish\Swashbuckle.AspNetCore.Swagger.dll
 C:\home\StudentHive0.1\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\home\StudentHive0.1\publish\Swashbuckle.AspNetCore.SwaggerUI.dll
