@@ -20,6 +20,13 @@ public class UserRepository
         return user ?? new User();
     }
 
+    public async Task<List<User>> GetAllPublicationsOfOneUser(int id)
+    {
+        var user = await _context.Users
+            .Include(user => user.RentalHouses)
+            .Where(user => user.IdUser == id).ToListAsync();
+        return user;
+    }
     public async Task<User> AtuhLogin(string email, string password)
     {
         var user = await _context.Users.FirstOrDefaultAsync(user => user.Email == email && user.Password == password);

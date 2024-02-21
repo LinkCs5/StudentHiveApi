@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using StudentHive.Domain.DTO;
 using StudentHive.Domain.DTO.Create;
 using StudentHive.Domain.DTO.Login;
+using StudentHive.Domain.DTO.Publitation;
 using StudentHive.Domain.DtoUpdate;
 using StudentHive.Domain.Entities;
 using StudentHive.Service.Features.Users;
@@ -33,6 +34,22 @@ public class UserController : ControllerBase
         
     }
 
+[HttpGet("publication/{id}")]
+public async Task<IActionResult> GetAllPublicationsOfOneuser(int id)
+{
+    var users = await _userService.GetAllPublicationsOfOneUser(id);
+    if(users == null || users.Count == 0) return NotFound();
+
+    // Por ejemplo, puedes acceder al primer usuario en la lista
+    var firstUser = users.FirstOrDefault();
+    if(firstUser!.IdUser <= 0) return NotFound();
+
+    var dto = _mapper.Map<PublicationUsersDto>(firstUser);
+    return Ok(dto);
+}
+
+
+
     [HttpPost("login")]
     public async Task<IActionResult> Login (UserLoginDto userLogin)
     {
@@ -56,31 +73,16 @@ public class UserController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, UpdateUserDto user)
     {
-        try
+           if (id <= 0)
         {
-            var exitingUser = await _userService.GeById(id);
-            if(exitingUser == null)
-            {
-                return NotFound();
-            }
-            exitingUser.IdUser = exitingUser.IdUser;
-            exitingUser.UserAge = user.UserAge;
-            exitingUser.Email = user.Email;
-            exitingUser.Password = user.Password;
-            exitingUser.Name = user.Name;
-            exitingUser.LastName = user.LastName;
-            exitingUser.Description = user.Description;
-            exitingUser.PhoneNumber = user.PhoneNumber;
-            exitingUser.ProfilePhotoUrl = user.ProfilePhotoUrl;
-            exitingUser.Genderu = user.Genderu;
+            return BadRequest();
+        }
 
-            await _userService.Update(exitingUser);
-            return NoContent();
-        }
-        catch(Exception)
-        {
-            return StatusCode(500, "Internal server error");
-        }
+        var entity = _mapper.Map<User>(user);
+        entity.IdUser = id;
+
+        await _userService.Update(entity);
+        return NoContent();
     }
 
     [HttpDelete("{id}")]

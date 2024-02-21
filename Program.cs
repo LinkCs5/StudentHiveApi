@@ -3,10 +3,11 @@ using StudentHive.Services.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using StudentHive.Services.MappingsM;
-using StudentHive.Services.Features.Users;
-using StudentHive.Infrastructure.Repository;
-using StudentHive.Services.Features.RentalH;
 using CloudinaryDotNet;
+using StudentHive.Service.Features.Users;
+using StudentHive.Infrastructure.Repositories;
+using StudentHive.Service.Features.RentalHouses;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,8 +20,13 @@ builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<RentalHouseService>();
 builder.Services.AddScoped<RentalHouseRepository>();
 
+// Add  serealization and deserealization services
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.MaxDepth = 64;
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+});
 // Add services to the container
-builder.Services.AddControllers();
 builder.Services.AddDbContext<StudentHiveApiDbContext>(
     options => {
     options.UseSqlServer(Configuration.GetConnectionString("gemDevelopment"));

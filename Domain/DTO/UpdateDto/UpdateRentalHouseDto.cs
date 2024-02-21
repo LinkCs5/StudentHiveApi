@@ -10,7 +10,8 @@ public class UpdateRentalHouseDto
     public int? IdRentalHouseDetail { get; set; }
     public int? IdTypeHouseRental { get; set; }
     public int? IdLocation { get; set; }
-    public int? IdHouseService { get; set; }    
+    public int? IdHouseService { get; set; }
+ 
 
 
 }

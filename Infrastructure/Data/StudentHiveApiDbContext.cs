@@ -17,7 +17,7 @@ public partial class StudentHiveApiDbContext : DbContext
     {
     }
 
-    public virtual DbSet<HouseService> Events { get; set; }
+    public virtual DbSet<Event> Events { get; set; }
 
     public virtual DbSet<HouseService> HouseServices { get; set; }
 
